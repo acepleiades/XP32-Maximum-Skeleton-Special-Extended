@@ -2,13 +2,15 @@
 
 XPMSSE was originally published on https://www.nexusmods.com/ by Groovtama.
 It was licensed under MIT so I decided to create a GitHub repository for it.
+Nexus mod page: https://www.nexusmods.com/skyrimspecialedition/mods/1988?tab=description
+
+# Attribution
 
 XPMSE Authors:
 - Groovtma: "XP32 Maximum Skeleton Extended" author, "XP32 Maximum Skeleton - XPMS" maintainer
 - Skulltyrant: "XP32 Maximum Skeleton - XPMS" maintainer and "Custom Skeleton Replacers" author
 - XP32: "XP32 Maximum Skeleton - XPMS" author
 
-# Attribution
 Contributing authors:
 - belisario: "Schlongs of Skyrim" and "SAM" maintainer
 - Blabba: CITRUS author
