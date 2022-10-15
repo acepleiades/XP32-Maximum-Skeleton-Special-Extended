@@ -1,0 +1,785 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
+  <moduleName>XP32 Maximum Skeleton (Special) Extended</moduleName>
+  <moduleImage path="Fomod\Screens\XPMSE_Banner.png"/>
+  <installSteps order="Explicit">
+    <installStep name="Skeleton">
+      <optionalFileGroups>
+        <group name="Meshes" type="SelectAll">
+          <plugins order="Explicit">
+            <plugin name="Skeleton Meshes">
+              <description>
+                <![CDATA[XPMS(S)E skeleton meshes.<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Skeleton Meshes" destination="" priority="1"/>
+              </files>
+              <typeDescriptor>
+                <type name="Required"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Creature Meshes">
+              <description>
+                <![CDATA[XPMS(S)E Creature meshes.<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Creature Meshes" destination="" priority="2"/>
+              </files>
+              <typeDescriptor>
+                <type name="Required"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Animation Rig Map" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Physics Extensions">
+              <description>
+                <![CDATA[skeleton.hkx and skeleton_female.hkx for "HDT Soft Mesh Physics" and "CBP Physics". Almost all the users would select this.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <conditionFlags>
+                <flag name="SR_HDT">On</flag>
+                <flag name="SR_BBP">Off</flag>
+                <flag name="SR_No">Off</flag>
+                <flag name="SR_None">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Skeleton Rig\HDT (Sknned Mesh) Physics Extension" destination="" priority="1"/>
+              </files>
+              <typeDescriptor>
+                <type name="Recommended"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Physics Extensions Old 4.51V">
+              <description>
+                <![CDATA[The old version of Physics Extensions(4.51V). There are still some old motions that were exported in wrong ways so that had unsolved issues like twisted belly. This 4.51V will solve those issues temporarily until animators fix their motions. For animators, you must export your motions with a proper bone index.]]>
+              </description>
+              <conditionFlags>
+                <flag name="SR_HDT">On</flag>
+                <flag name="SR_BBP">Off</flag>
+                <flag name="SR_No">Off</flag>
+                <flag name="SR_None">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Skeleton Rig\HDT (Sknned Mesh) Physics Extension 4.51V" destination="" priority="2"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Fake Physics">
+              <description>
+                <![CDATA[skeleton.hkx and skeleton_female.hkx for keyframed(It means they won't move automatically by HDT.) "Breast and Butt Physics" (BBP), "Tender Breast and Butt Physics" (TBBP) and "3 Breasts and Butt Bones" (3BBB). You are not supposed to select this when you want to use HDT-based body. This option will be mostly used by animators or photo takers for some specific purposes.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <conditionFlags>
+                <flag name="SR_HDT">Off</flag>
+                <flag name="SR_BBP">On</flag>
+                <flag name="SR_No">Off</flag>
+                <flag name="SR_None">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Skeleton Rig\(Tender) Breast and Butt Physics" destination="" priority="3"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="No Physics">
+              <description>
+                <![CDATA[skeleton.hkx and skeleton_female.hkx for no body physics but with compatibility fixes.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <conditionFlags>
+                <flag name="SR_HDT">Off</flag>
+                <flag name="SR_BBP">Off</flag>
+                <flag name="SR_No">On</flag>
+                <flag name="SR_None">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Skeleton Rig\HDT (Sknned Mesh) Physics Extension" destination="" priority="4"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[No skeleton.hkx and skeleton_female.hkx.<br /><br />Requirement: None]]>
+              </description>
+              <conditionFlags>
+                <flag name="SR_HDT">Off</flag>
+                <flag name="SR_BBP">Off</flag>
+                <flag name="SR_No">Off</flag>
+                <flag name="SR_None">On</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Skeleton Rig\None" destination="" priority="5"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Character Creation">
+      <optionalFileGroups>
+        <group name="Character Creation" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Racemenu">
+              <description>
+                <![CDATA[XPMS(S)E Plugin for Racemenu, includes the MCM Menu<br /><br />Requirement: SKSE64, SkyUI, Racemenu, Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <conditionFlags>
+                <flag name="CC_RM">On</flag>
+                <flag name="CC_ECE">Off</flag>
+                <flag name="CC_MCM">Off</flag>
+                <flag name="CC_NIO">On</flag>
+                <flag name="CC_None">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Character Creation\MCM\assets" destination="" priority="3"/>
+                <folder source="Character Creation\RaceMenu\plugin" destination="" priority="3"/>
+                <folder source="Character Creation\RaceMenu\assets" destination="" priority="3"/>
+                <folder source="Animations\Base\Default Vanilla Animations" destination="" priority="4"/>
+                <folder source="Animations\Base\FNIS Alternate Animations" destination="" priority="4"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Enhanced Character Edit">
+              <description>
+                <![CDATA[XPMS(S)E MCM Menu<br /><br />Requirement: SKSE64, SkyUI, NetImmerse Override Standalone, Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <conditionFlags>
+                <flag name="CC_RM">Off</flag>
+                <flag name="CC_ECE">On</flag>
+                <flag name="CC_MCM">On</flag>
+                <flag name="CC_NIO">On</flag>
+                <flag name="CC_None">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Character Creation\MCM\plugin" destination="" priority="3"/>
+                <folder source="Character Creation\MCM\assets" destination="" priority="3"/>
+                <folder source="Animations\Base\Default Vanilla Animations" destination="" priority="4"/>
+                <folder source="Animations\Base\FNIS Alternate Animations" destination="" priority="4"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="MCM">
+              <description>
+                <![CDATA[XPMS(S)E MCM Menu<br /><br />Requirement: SKSE64, SkyUI, NetImmerse Override Standalone, Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <conditionFlags>
+                <flag name="CC_RM">Off</flag>
+                <flag name="CC_ECE">Off</flag>
+                <flag name="CC_MCM">On</flag>
+                <flag name="CC_NIO">On</flag>
+                <flag name="CC_None">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Character Creation\MCM\plugin" destination="" priority="3"/>
+                <folder source="Character Creation\MCM\assets" destination="" priority="3"/>
+                <folder source="Animations\Base\Default Vanilla Animations" destination="" priority="4"/>
+                <folder source="Animations\Base\FNIS Alternate Animations" destination="" priority="4"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[Nothing related to character creation will be installed.<br /><br />Requirement: None]]>
+              </description>
+              <conditionFlags>
+                <flag name="CC_RM">Off</flag>
+                <flag name="CC_ECE">Off</flag>
+                <flag name="CC_MCM">Off</flag>
+                <flag name="CC_NIO">Off</flag>
+                <flag name="CC_None">On</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Character Creation\None" destination="" priority="3"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Character Creation">
+      <visible>
+        <flagDependency flag="CC_NIO" value="On"/>
+      </visible>
+      <optionalFileGroups>
+        <group name="Weapon Style Randomizer for NPCs" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="In Sync">
+              <description>
+                <![CDATA[The randomized left and the right handed weapon styles for NPCs will always be the same.<br /><br />Requirement: Racemenu or NetImmerse Override Standalone]]>
+              </description>
+              <files>
+                <folder source="Character Creation\Randomizer\In Sync" destination="" priority="5"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="In Sync - SFW">
+              <description>
+                <![CDATA[The randomized left and the right handed weapon styles for NPCs will always be the same. Excludes NSFW Magic and Shout styles.<br /><br />Requirement: Racemenu or NetImmerse Override Standalone]]>
+              </description>
+              <files>
+                <folder source="Character Creation\Randomizer\In Sync for STEP" destination="" priority="5"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Out of Sync">
+              <description>
+                <![CDATA[The randomized left and the right handed weapon styles for NPCs can be different.<br /><br />Requirement: Racemenu or NetImmerse Override Standalone]]>
+              </description>
+              <files>
+                <folder source="Character Creation\Randomizer\Out of Sync" destination="" priority="5"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Out of Sync - SFW">
+              <description>
+                <![CDATA[The randomized left and the right handed weapon styles for NPCs can be different. Excludes NSFW Magic and Shout styles.<br /><br />Requirement: Racemenu or NetImmerse Override Standalone]]>
+              </description>
+              <files>
+                <folder source="Character Creation\Randomizer\Out of Sync for STEP" destination="" priority="5"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[No randomization of styles will be installed.<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Character Creation\Randomizer\None" destination="" priority="5"/>
+              </files>
+              <typeDescriptor>
+                <type name="Recommended"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Animation Variants">
+      <visible>
+        <flagDependency flag="CC_NIO" value="On"/>
+      </visible>
+      <optionalFileGroups>
+        <group name="Belt-Fastened Quivers" type="SelectAtMostOne">
+          <plugins order="Explicit">
+            <plugin name="Pretty Combat Animations - Archer Origin">
+              <description>
+                <![CDATA[Replaces the default Belt-Fastened Quivers style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Belt-Fastened Quivers\Pretty Combat Animations - Archer Origin" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Pretty Combat Animations - Ranger">
+              <description>
+                <![CDATA[Replaces the default Belt-Fastened Quivers style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Belt-Fastened Quivers\Pretty Combat Animations - Ranger" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Dagger on Back" type="SelectAtMostOne">
+          <plugins order="Explicit">
+            <plugin name="Pretty Combat Animations - Guardian">
+              <description>
+                <![CDATA[Replaces the default Dagger on Back style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Dagger on Back\Pretty Combat Animations - Guardian" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Pretty Combat Animations - Warlord">
+              <description>
+                <![CDATA[Replaces the default Dagger on Back style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Dagger on Back\Pretty Combat Animations - Warlord" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Pretty Combat Animations - Weapon Master">
+              <description>
+                <![CDATA[Replaces the default Dagger on Back style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Dagger on Back\Pretty Combat Animations - Weapon Master" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Dagger on Hip" type="SelectAtMostOne">
+          <plugins order="Explicit">
+            <plugin name="Pretty Combat Animations - Guardian">
+              <description>
+                <![CDATA[Replaces the default Dagger on Hip style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Dagger on Hip\Pretty Combat Animations - Guardian" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Pretty Combat Animations - Weapon Master">
+              <description>
+                <![CDATA[Replaces the default Dagger on Hip style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Dagger on Hip\Pretty Combat Animations - Weapon Master" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Magic" type="SelectAtMostOne">
+          <plugins order="Explicit">
+            <plugin name="Magic Nipple Animations - Floating">
+              <description>
+                <![CDATA[Replaces the default Magic Nipple style animations with an alternative one.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <files>
+                <folder source="Animations\Magic\Magic Nipple Animations - Floating" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Magic Nipple Animations - Floating Alternative">
+              <description>
+                <![CDATA[Replaces the default Magic Nipple style animations with an alternative one.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <files>
+                <folder source="Animations\Magic\Magic Nipple Animations - Floating" destination="" priority="6"/>
+                <folder source="Animations\Magic\Magic Nipple Animations - Floating Alternative" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Magic Nipple Animations - Ground">
+              <description>
+                <![CDATA[Replaces the default Magic Nipple style animations with an alternative one.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE]]>
+              </description>
+              <files>
+                <folder source="Animations\Magic\Magic Nipple Animations - Ground" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Sword on Back" type="SelectAtMostOne">
+          <plugins order="Explicit">
+            <plugin name="Pretty Combat Animations - Guardian">
+              <description>
+                <![CDATA[Replaces the default Sword on Back style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Sword on Back\Pretty Combat Animations - Guardian" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Pretty Combat Animations - Warlord">
+              <description>
+                <![CDATA[Replaces the default Sword on Back style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Sword on Back\Pretty Combat Animations - Warlord" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Pretty Combat Animations - Weapon Master">
+              <description>
+                <![CDATA[Replaces the default Sword on Back style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Sword on Back\Pretty Combat Animations - Weapon Master" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Sword on Hip" type="SelectAtMostOne">
+          <plugins order="Explicit">
+            <plugin name="Pretty Combat Animations - Guardian">
+              <description>
+                <![CDATA[Replaces the default Sword on Hip style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Sword on Hip\Pretty Combat Animations - Guardian" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Pretty Combat Animations - Weapon Master">
+              <description>
+                <![CDATA[Replaces the default Sword on Hip style animations with the ones from Pretty Combat Animations SSE.<br /><br />Requirement: Fores New Idles in Skyrim SE - FNIS SE, Pretty Combat Animations SSE]]>
+              </description>
+              <files>
+                <folder source="Animations\Sword on Hip\Pretty Combat Animations - Weapon Master" destination="" priority="6"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="First Person Animation">
+      <optionalFileGroups>
+        <group name="Axe - Warning! Missing Sounds! Not Compatible with Styles!" type="SelectAny">
+          <plugins order="Explicit">
+            <plugin name="Axes on Back">
+              <description>
+                <![CDATA[Replaces the default first person animations for axes with the ones that draw the axe from the back.<br /><br />Warning! Missing Sounds! Not Compatible with Styles!<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Animations\First Person\Axes on Back" destination="" priority="7"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Sword - Warning! Missing Sounds! Not Compatible with Styles!" type="SelectAtMostOne">
+          <plugins order="Explicit">
+            <plugin name="FSM de Gozaru">
+              <description>
+                <![CDATA[Replaces the default first person animations for one-handed swords with the ones that draw the swords from the opposite side.<br /><br />Warning! Missing Sounds! Not Compatible with Styles!<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Animations\First Person\FSM de Gozaru" destination="" priority="7"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Swords on Back">
+              <description>
+                <![CDATA[Replaces the default first person animations for swords with the ones that draw the sword from the back.<br /><br />Warning! Missing Sounds! Not Compatible with Styles!<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Animations\First Person\Swords on Back" destination="" priority="7"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Mounted Combat Animation">
+      <optionalFileGroups>
+        <group name="Axe - Warning! Missing Sounds! Not Compatible with Styles!" type="SelectAny">
+          <plugins order="Explicit">
+            <plugin name="Axes on Back">
+              <description>
+                <![CDATA[Replaces the default mounted combat animations for axes with the ones that draw the axe from the back.<br /><br />Warning! Missing Sounds! Not Compatible with Styles!<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Animations\Mounted Combat\Axes on Back" destination="" priority="8"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Bow" type="SelectAny">
+          <plugins order="Explicit">
+            <plugin name="Belt-Fastened Quivers">
+              <description>
+                <![CDATA[Replaces the default mounted combat animations for bows with the ones that are compatible with Belt-Fastened Quivers.<br /><br />Not Compatible with Styles!<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Animations\Mounted Combat\Belt-Fastened Quivers" destination="" priority="8"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Sword - Warning! Missing Sounds! Not Compatible with Styles!" type="SelectAtMostOne">
+          <plugins order="Explicit">
+            <plugin name="FSM de Gozaru">
+              <description>
+                <![CDATA[Replaces the default mounted combat animations for one-handed swords with the ones that draw the swords from the opposite side.<br /><br />Warning! Missing Sounds! Not Compatible with Styles!<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Animations\Mounted Combat\FSM de Gozaru" destination="" priority="8"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Swords on Back">
+              <description>
+                <![CDATA[Replaces the default mounted combat animations for swords with the ones that draw the sword from the back.<br /><br />Warning! Missing Sounds! Not Compatible with Styles!<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Animations\Mounted Combat\Swords on Back" destination="" priority="8"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Compatibility Patches">
+      <optionalFileGroups>
+        <group name="The Joy of Perspective" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="The Joy of Perspective">
+              <description>
+                <![CDATA[Compatibility Patch for The Joy of Perspective.<br /><br />Requirement: The Joy of Perspective]]>
+              </description>
+              <conditionFlags>
+                <flag name="CP_JOP">On</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Compatibility Patches\The Joy of Perspective\Skeleton Mesh" destination="" priority="97"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[Nothing related to compatibility patches for The Joy of Perspective will be installed.<br /><br />Requirement: None]]>
+              </description>
+              <conditionFlags>
+                <flag name="CP_JOP">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Compatibility Patches\None" destination="" priority="97"/>
+              </files>
+              <typeDescriptor>
+                <type name="Recommended"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+        <group name="Schlongs of Skyrim" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Schlongs of Skyrim">
+              <description>
+                <![CDATA[Compatibility Patch for Schlongs of Skyrim SE.<br /><br />Requirement: Schlongs of Skyrim SE]]>
+              </description>
+              <conditionFlags>
+                <flag name="CP_SoS">On</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Compatibility Patches\Schlongs of Skyrim" destination="" priority="9"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[Nothing related to compatibility patches for Schlongs of Skyrim SE will be installed.<br /><br />Requirement: None]]>
+              </description>
+              <conditionFlags>
+                <flag name="CP_SoS">Off</flag>
+              </conditionFlags>
+              <files>
+                <folder source="Compatibility Patches\None" destination="" priority="9"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Compatibility Patches">
+      <visible>
+        <flagDependency flag="CP_JOP" value="On"/>
+      </visible>
+      <optionalFileGroups>
+        <group name="Deadly Mutilation" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Deadly Mutilation">
+              <description>
+                <![CDATA[Compatibility Patch for Deadly Mutilation.<br /><br />Requirement: Deadly Mutilation - dismemberment blood and gore]]>
+              </description>
+              <files>
+                <folder source="Compatibility Patches\Deadly Mutilation\Skeleton Mesh" destination="" priority="98"/>
+                <folder source="Compatibility Patches\Deadly Mutilation + The Joy of Perspective\Skeleton Mesh" destination="" priority="99"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[Nothing related to compatibility patches for Deadly Mutilation will be installed.<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Compatibility Patches\None" destination="" priority="99"/>
+              </files>
+              <typeDescriptor>
+                <type name="Recommended"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Compatibility Patches">
+      <visible>
+        <flagDependency flag="CP_JOP" value="Off"/>
+      </visible>
+      <optionalFileGroups>
+        <group name="Deadly Mutilation" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Deadly Mutilation">
+              <description>
+                <![CDATA[Compatibility Patch for Deadly Mutilation.<br /><br />Requirement: Deadly Mutilation - dismemberment blood and gore]]>
+              </description>
+              <files>
+                <folder source="Compatibility Patches\Deadly Mutilation\Skeleton Mesh" destination="" priority="98"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[Nothing related to compatibility patches for Deadly Mutilation will be installed.<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Compatibility Patches\None" destination="" priority="99"/>
+              </files>
+              <typeDescriptor>
+                <type name="Recommended"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Compatibility Patches">
+      <visible>
+        <flagDependency flag="CC_RM" value="On"/>
+      </visible>
+      <optionalFileGroups>
+        <group name="Enderal" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Enderal">
+              <description>
+                <![CDATA[Compatibility Patch for Enderal.<br /><br />Requirement: Enderal]]>
+              </description>
+              <files>
+                <folder source="Compatibility Patches\Enderal\RaceMenu" destination="" priority="9"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[Nothing related to compatibility patches for Enderal will be installed.<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Compatibility Patches\None" destination="" priority="9"/>
+              </files>
+              <typeDescriptor>
+                <type name="Recommended"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Compatibility Patches">
+      <visible>
+        <flagDependency flag="CC_MCM" value="On"/>
+      </visible>
+      <optionalFileGroups>
+        <group name="Enderal" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Enderal">
+              <description>
+                <![CDATA[Compatibility Patch for Enderal.<br /><br />Requirement: Enderal]]>
+              </description>
+              <files>
+                <folder source="Compatibility Patches\Enderal\MCM" destination="" priority="9"/>
+              </files>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="None">
+              <description>
+                <![CDATA[Nothing related to compatibility patches for Enderal will be installed.<br /><br />Requirement: None]]>
+              </description>
+              <files>
+                <folder source="Compatibility Patches\None" destination="" priority="9"/>
+              </files>
+              <typeDescriptor>
+                <type name="Recommended"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+  </installSteps>
+</config>		
